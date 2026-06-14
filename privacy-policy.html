@@ -1,11 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <title>Privacy Policy</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy — Javan Hawk-Eagle</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --gold: #C9963A;
+      --gold-light: #E8BB6A;
+      --deep: #0F1F14;
+      --forest: #1A3524;
+      --sage: #2E5C3E;
+      --cream: #FAF6EE;
+      --text-muted: #7A8C7F;
+      --border: #E4E0D8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--cream);
+      color: var(--deep);
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* NAVBAR */
+    .navbar {
+      background: var(--deep);
+      padding: 1rem 0;
+    }
+    .navbar-brand {
+      font-family: 'Amiri', serif;
+      font-size: 1.4rem;
+      color: var(--gold) !important;
+    }
+    .navbar-brand span {
+      color: #fff;
+      font-size: 0.72rem;
+      font-family: 'Inter', sans-serif;
+      font-weight: 300;
+      display: block;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+    .btn-home {
+      background: transparent;
+      border: 1.5px solid rgba(201,150,58,0.5);
+      color: var(--gold) !important;
+      font-size: 0.82rem;
+      padding: 0.4rem 1.1rem;
+      border-radius: 4px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .btn-home:hover {
+      background: rgba(201,150,58,0.12);
+      border-color: var(--gold);
+      color: var(--gold-light) !important;
+    }
+
+    /* HERO BANNER */
+    .policy-banner {
+      background: var(--deep);
+      padding: 3.5rem 0 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .policy-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 80% 50%, rgba(201,150,58,0.10) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .policy-banner .eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+    }
+    .policy-banner h1 {
+      font-family: 'Amiri', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 0.5rem;
+    }
+    .policy-banner .meta {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+    }
+    .policy-banner .meta span {
+      color: var(--gold);
+    }
+
+    /* CONTENT CARD */
+    .policy-content {
+      padding: 3rem 0 5rem;
+    }
+    .policy-card {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+    }
+
+    /* TOC SIDEBAR */
+    .toc-wrap {
+      padding: 1.75rem;
+      background: var(--cream);
+      border-right: 1px solid var(--border);
+      height: 100%;
+    }
+    .toc-title {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+    .toc-link {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.5rem;
+      padding: 0.45rem 0.6rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      color: var(--deep);
+      text-decoration: none;
+      transition: background 0.15s, color 0.15s;
+      margin-bottom: 2px;
+      line-height: 1.4;
+    }
+    .toc-link i {
+      color: var(--gold);
+      font-size: 0.65rem;
+      margin-top: 0.3rem;
+      flex-shrink: 0;
+    }
+    .toc-link:hover {
+      background: rgba(201,150,58,0.1);
+      color: var(--sage);
+    }
+    .toc-divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 1rem 0;
+    }
+    .toc-home-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--sage);
+      background: rgba(46,92,62,0.08);
+      border: 1px solid rgba(46,92,62,0.2);
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .toc-home-btn:hover {
+      background: rgba(46,92,62,0.15);
+      color: var(--forest);
+    }
+
+    /* POLICY TEXT */
+    .policy-text {
+      padding: 2.25rem 2rem;
+    }
+    .policy-section {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .policy-section:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      background: rgba(201,150,58,0.1);
+      color: var(--gold);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 0.75rem;
+    }
+    .policy-section h2 {
+      font-family: 'Amiri', serif;
+      font-size: 1.3rem;
+      color: var(--deep);
+      margin-bottom: 0.75rem;
+    }
+    .policy-section p {
+      color: #3D4E43;
+      margin-bottom: 0.75rem;
+    }
+    .policy-section ul {
+      padding-left: 0;
+      list-style: none;
+    }
+    .policy-section ul li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      position: relative;
+      color: #3D4E43;
+    }
+    .policy-section ul li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.75rem;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+    .policy-section a {
+      color: var(--sage);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .policy-section a:hover { color: var(--forest); }
+
+    /* HIGHLIGHT BOXES */
+    .info-box {
+      background: rgba(46,92,62,0.06);
+      border-left: 3px solid var(--sage);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+      color: #2a4034;
+    }
+    .info-box i { color: var(--sage); margin-right: 0.4rem; }
+    .warning-box {
+      background: rgba(201,150,58,0.08);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      font-size: 0.88rem;
+      color: #5c4018;
+    }
+
+    /* CONTACT CARD */
+    .contact-card {
+      background: var(--deep);
+      border-radius: 10px;
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 0.75rem;
+    }
+    .contact-icon {
+      width: 44px;
+      height: 44px;
+      background: rgba(201,150,58,0.15);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gold-light);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+    .contact-label {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.4);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .contact-email {
+      color: var(--gold-light);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+    }
+    .contact-email:hover { color: #fff; }
+
+    /* FOOTER */
+    footer {
+      background: var(--deep);
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-brand {
+      font-family: 'Amiri', serif;
+      color: var(--gold);
+      font-size: 1.2rem;
+    }
+    .footer-text { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+    .footer-link {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.78rem;
+      text-decoration: none;
+    }
+    .footer-link:hover { color: var(--gold); }
+
+    /* STICKY TOC on desktop */
+    @media (min-width: 992px) {
+      .toc-sticky { position: sticky; top: 80px; }
+    }
+    @media (max-width: 991px) {
+      .toc-wrap { border-right: none; border-bottom: 1px solid var(--border); }
+      .policy-text { padding: 1.75rem 1.25rem; }
+    }
+  </style>
 </head>
 <body>
-<head>
-    <title>Privacy Policy</title>
-</head>
-<body>
-<p>Javanhawk-eagle built this app as a Free app. This SERVICE is provided by Javanhawk-eagle at no cost and is intended for use as is.<br><br>This page is used to inform visitors regarding my policies with the collection, use, and disclosure of Personal Information if anyone decided to use my Service.<br><br>If you choose to use my Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that I collect is used for providing and improving the Service. I will not use or share your information with anyone except as described in this Privacy Policy.<br><br>The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at this app unless otherwise defined in this Privacy Policy.<br><br>Information Collection and Use<br><br>For a better experience, while using our Service, I may require you to provide us with certain personally identifiable information. The information that I request will be retained on your device and is not collected by me in any way.<br><br>The app does use third-party services that may collect information used to identify you.<br><br>Link to the privacy policy of third-party service providers used by the app<br><br><a href="https://www.google.com/policies/privacy/">Google Play Services</a>
-    <a href="https://support.google.com/admob/answer/6128543?hl=en">AdMob</a><br><br>Log Data<br><br>I want to inform you that whenever you use my Service, in a case of an error in the app I collect data and information (through third-party products) on your phone called Log Data. This Log Data may include information such as your device Internet Protocol (&ldquo;IP&rdquo;) address, device name, operating system version, the configuration of the app when utilizing my Service, the time and date of your use of the Service, and other statistics.<br><br>Cookies<br><br>Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device&apos;s internal memory.<br><br>This Service does not use these &ldquo;cookies&rdquo; explicitly. However, the app may use third-party code and libraries that use &ldquo;cookies&rdquo; to collect information and improve their services. You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.<br><br>Service Providers<br><br>I may employ third-party companies and individuals due to the following reasons:<br><br>&nbsp; &nbsp; To facilitate our Service;<br>&nbsp; &nbsp; To provide the Service on our behalf;<br>&nbsp; &nbsp; To perform Service-related services; or<br>&nbsp; &nbsp; To assist us in analyzing how our Service is used.<br><br>I want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.<br><br>Security<br><br>I value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it. But remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and I cannot guarantee its absolute security.<br><br>Links to Other Sites<br><br>This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by me. Therefore, I strongly advise you to review the Privacy Policy of these websites. I have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.<br><br>Children&rsquo;s Privacy<br><br>These Services do not address anyone under the age of 13. I do not knowingly collect personally identifiable information from children under 13 years of age. In the case I discover that a child under 13 has provided me with personal information, I immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact me so that I will be able to do the necessary actions.<br><br>Changes to This Privacy Policy<br><br>I may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. I will notify you of any changes by posting the new Privacy Policy on this page.<br><br>This policy is effective as of 2026<br><br>Contact Us<br><br>If you have any questions or suggestions about my Privacy Policy, do not hesitate to contact me at <a data-fr-linked="true" href="mailto:0x7079@gmail.com">0x7079@gmail.com</a>.<br><br>This privacy policy page was created at privacypolicytemplate.net and modified/generated by App Privacy Policy Generator</p>
+
+<!-- NAVBAR -->
+<nav class="navbar sticky-top">
+  <div class="container d-flex align-items-center justify-content-between">
+    <a class="navbar-brand" href="https://javanhawkeagle.github.io">
+      Javan Hawk-Eagle
+      <span>Islamic Apps Developer</span>
+    </a>
+    <a href="https://javanhawkeagle.github.io" class="btn-home">
+      <i class="fas fa-home fa-sm"></i> Home
+    </a>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<div class="policy-banner">
+  <div class="container">
+    <p class="eyebrow"><i class="fas fa-shield-alt me-1"></i> Legal</p>
+    <h1>Privacy Policy</h1>
+    <p class="meta">Effective as of <span>2026</span> &nbsp;·&nbsp; Javan Hawk-Eagle</p>
+  </div>
+</div>
+
+<!-- CONTENT -->
+<section class="policy-content">
+  <div class="container">
+    <div class="policy-card">
+      <div class="row g-0">
+
+        <!-- SIDEBAR TOC -->
+        <div class="col-lg-3">
+          <div class="toc-wrap toc-sticky">
+            <div class="toc-title">Contents</div>
+            <a href="#intro" class="toc-link"><i class="fas fa-circle"></i> Introduction</a>
+            <a href="#collection" class="toc-link"><i class="fas fa-circle"></i> Information Collection</a>
+            <a href="#logdata" class="toc-link"><i class="fas fa-circle"></i> Log Data</a>
+            <a href="#cookies" class="toc-link"><i class="fas fa-circle"></i> Cookies</a>
+            <a href="#providers" class="toc-link"><i class="fas fa-circle"></i> Service Providers</a>
+            <a href="#security" class="toc-link"><i class="fas fa-circle"></i> Security</a>
+            <a href="#links" class="toc-link"><i class="fas fa-circle"></i> Links to Other Sites</a>
+            <a href="#children" class="toc-link"><i class="fas fa-circle"></i> Children's Privacy</a>
+            <a href="#changes" class="toc-link"><i class="fas fa-circle"></i> Changes to Policy</a>
+            <a href="#contact" class="toc-link"><i class="fas fa-circle"></i> Contact Us</a>
+            <hr class="toc-divider"/>
+            <a href="https://javanhawkeagle.github.io" class="toc-home-btn">
+              <i class="fas fa-arrow-left fa-sm"></i> Back to Home
+            </a>
+          </div>
+        </div>
+
+        <!-- POLICY TEXT -->
+        <div class="col-lg-9">
+          <div class="policy-text">
+
+            <!-- Intro -->
+            <div class="policy-section" id="intro">
+              <span class="section-badge"><i class="fas fa-info-circle"></i> Overview</span>
+              <h2>Introduction</h2>
+              <p>Javanhawk-eagle built this app as a Free app. This SERVICE is provided by Javanhawk-eagle at no cost and is intended for use as is.</p>
+              <p>This page is used to inform visitors regarding our policies with the collection, use, and disclosure of Personal Information if anyone decided to use our Service.</p>
+              <p>If you choose to use our Service, then you agree to the collection and use of information in relation to this policy. The Personal Information that we collect is used for providing and improving the Service. We will not use or share your information with anyone except as described in this Privacy Policy.</p>
+              <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                The terms used in this Privacy Policy have the same meanings as in our Terms and Conditions, which are accessible at the app unless otherwise defined in this Privacy Policy.
+              </div>
+            </div>
+
+            <!-- Information Collection -->
+            <div class="policy-section" id="collection">
+              <span class="section-badge"><i class="fas fa-database"></i> Data</span>
+              <h2>Information Collection and Use</h2>
+              <p>For a better experience, while using our Service, we may require you to provide us with certain personally identifiable information. The information that we request will be retained on your device and is not collected by us in any way.</p>
+              <div class="info-box">
+                <i class="fas fa-check-circle"></i>
+                The app does use third-party services that may collect information used to identify you.
+              </div>
+              <p>Link to the privacy policy of third-party service providers used by the app:</p>
+              <ul>
+                <li><a href="https://www.google.com/policies/privacy/" target="_blank">Google Play Services</a></li>
+                <li><a href="https://support.google.com/admob/answer/6128543?hl=en" target="_blank">AdMob</a></li>
+              </ul>
+            </div>
+
+            <!-- Log Data -->
+            <div class="policy-section" id="logdata">
+              <span class="section-badge"><i class="fas fa-file-alt"></i> Logs</span>
+              <h2>Log Data</h2>
+              <p>We want to inform you that whenever you use our Service, in a case of an error in the app we collect data and information (through third-party products) on your phone called Log Data. This Log Data may include:</p>
+              <ul>
+                <li>Your device Internet Protocol ("IP") address</li>
+                <li>Device name and operating system version</li>
+                <li>Configuration of the app when utilizing our Service</li>
+                <li>The time and date of your use of the Service</li>
+                <li>Other statistics</li>
+              </ul>
+            </div>
+
+            <!-- Cookies -->
+            <div class="policy-section" id="cookies">
+              <span class="section-badge"><i class="fas fa-cookie-bite"></i> Cookies</span>
+              <h2>Cookies</h2>
+              <p>Cookies are files with a small amount of data that are commonly used as anonymous unique identifiers. These are sent to your browser from the websites that you visit and are stored on your device's internal memory.</p>
+              <div class="warning-box">
+                <i class="fas fa-exclamation-triangle me-1" style="color: var(--gold);"></i>
+                This Service does not use these "cookies" explicitly. However, the app may use third-party code and libraries that use "cookies" to collect information and improve their services.
+              </div>
+              <p>You have the option to either accept or refuse these cookies and know when a cookie is being sent to your device. If you choose to refuse our cookies, you may not be able to use some portions of this Service.</p>
+            </div>
+
+            <!-- Service Providers -->
+            <div class="policy-section" id="providers">
+              <span class="section-badge"><i class="fas fa-handshake"></i> Third Parties</span>
+              <h2>Service Providers</h2>
+              <p>We may employ third-party companies and individuals due to the following reasons:</p>
+              <ul>
+                <li>To facilitate our Service</li>
+                <li>To provide the Service on our behalf</li>
+                <li>To perform Service-related services</li>
+                <li>To assist us in analyzing how our Service is used</li>
+              </ul>
+              <div class="info-box">
+                <i class="fas fa-info-circle"></i>
+                We want to inform users of this Service that these third parties have access to their Personal Information to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.
+              </div>
+            </div>
+
+            <!-- Security -->
+            <div class="policy-section" id="security">
+              <span class="section-badge"><i class="fas fa-lock"></i> Security</span>
+              <h2>Security</h2>
+              <p>We value your trust in providing us your Personal Information, thus we are striving to use commercially acceptable means of protecting it.</p>
+              <div class="warning-box">
+                <i class="fas fa-exclamation-triangle me-1" style="color: var(--gold);"></i>
+                Remember that no method of transmission over the internet, or method of electronic storage is 100% secure and reliable, and we cannot guarantee its absolute security.
+              </div>
+            </div>
+
+            <!-- Links -->
+            <div class="policy-section" id="links">
+              <span class="section-badge"><i class="fas fa-external-link-alt"></i> External</span>
+              <h2>Links to Other Sites</h2>
+              <p>This Service may contain links to other sites. If you click on a third-party link, you will be directed to that site. Note that these external sites are not operated by us. Therefore, we strongly advise you to review the Privacy Policy of these websites.</p>
+              <p>We have no control over and assume no responsibility for the content, privacy policies, or practices of any third-party sites or services.</p>
+            </div>
+
+            <!-- Children -->
+            <div class="policy-section" id="children">
+              <span class="section-badge"><i class="fas fa-child"></i> Children</span>
+              <h2>Children's Privacy</h2>
+              <p>These Services do not address anyone under the age of 13. We do not knowingly collect personally identifiable information from children under 13 years of age.</p>
+              <p>In the case we discover that a child under 13 has provided us with personal information, we immediately delete this from our servers. If you are a parent or guardian and you are aware that your child has provided us with personal information, please contact us so that we will be able to take the necessary actions.</p>
+            </div>
+
+            <!-- Changes -->
+            <div class="policy-section" id="changes">
+              <span class="section-badge"><i class="fas fa-sync-alt"></i> Updates</span>
+              <h2>Changes to This Privacy Policy</h2>
+              <p>We may update our Privacy Policy from time to time. Thus, you are advised to review this page periodically for any changes. We will notify you of any changes by posting the new Privacy Policy on this page.</p>
+              <div class="info-box">
+                <i class="fas fa-calendar-check"></i>
+                This policy is effective as of <strong>2026</strong>.
+              </div>
+            </div>
+
+            <!-- Contact -->
+            <div class="policy-section" id="contact">
+              <span class="section-badge"><i class="fas fa-envelope"></i> Contact</span>
+              <h2>Contact Us</h2>
+              <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us.</p>
+              <div class="contact-card">
+                <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                <div>
+                  <div class="contact-label">Email</div>
+                  <a href="mailto:0x7079@gmail.com" class="contact-email">0x7079@gmail.com</a>
+                </div>
+              </div>
+              <p class="mt-3" style="font-size: 0.78rem; color: var(--text-muted);">
+                This privacy policy page was created at <a href="https://privacypolicytemplate.net" target="_blank">privacypolicytemplate.net</a> and modified/generated by App Privacy Policy Generator.
+              </p>
+            </div>
+
+          </div><!-- /policy-text -->
+        </div>
+
+      </div><!-- /row -->
+    </div><!-- /policy-card -->
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 mb-2 mb-md-0">
+        <div class="footer-brand">Javan Hawk-Eagle</div>
+        <div class="footer-text mt-1">© 2026 Javan Hawk-Eagle. All rights reserved.</div>
+      </div>
+      <div class="col-md-6 text-md-end d-flex justify-content-md-end gap-3 flex-wrap">
+        <a href="https://javanhawkeagle.github.io" class="footer-link">
+          <i class="fas fa-home me-1"></i> Home
+        </a>
+        <a href="https://play.google.com/store/apps/developer?id=Javan+hawk-eagle" target="_blank" class="footer-link">
+          <i class="fab fa-google-play me-1"></i> Play Store
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Smooth scroll for TOC links
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        const offset = 90;
+        const top = target.getBoundingClientRect().top + window.scrollY - offset;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+
+  // Highlight active TOC link on scroll
+  const sections = document.querySelectorAll('.policy-section');
+  const tocLinks = document.querySelectorAll('.toc-link');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(l => l.style.background = '');
+        const active = document.querySelector(`.toc-link[href="#${entry.target.id}"]`);
+        if (active) active.style.background = 'rgba(201,150,58,0.12)';
+      }
+    });
+  }, { rootMargin: '-80px 0px -60% 0px' });
+  sections.forEach(s => observer.observe(s));
+</script>
 </body>
+</html>
